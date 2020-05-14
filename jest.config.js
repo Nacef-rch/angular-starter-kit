@@ -14,7 +14,7 @@ module.exports = {
         },
     },
     testMatch: ['<rootDir>/**/**/*.spec.ts'],
-    collectCoverage: false,
+    testResultsProcessor: 'jest-sonar-reporter',
     collectCoverageFrom: [
         '**/src/**/*.ts',
         '!**/node_modules/**',
@@ -24,4 +24,9 @@ module.exports = {
         '!**/environments/**',
         '!**/src/setupJest.ts',
     ],
+
+    coverageReporters: ['json', 'lcov', 'html', 'text'],
+    collectCoverageFrom: ['<rootDir>/src/app/**/*.ts', '!**/*.module.ts', '!**/*.mock.ts', '!**/*.stories.ts'],
+    coverageDirectory: '<rootDir>/reports',
+    coveragePathIgnorePatterns: ['<rootDir>/node_modules'],
 };

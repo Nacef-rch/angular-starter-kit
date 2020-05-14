@@ -6,11 +6,15 @@
         "start": "ng serve",
         "build": "ng build",
         "test": "jest",
+        "test:watch": "jest --watch",
+        "test:debug": "jest --runInBand",
+        "test:coverage": "jest --coverage",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "e2e": "ng e2e",
-        "test:watch": "jest --watch",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "sonar-scanner": "node_modules/.bin/sonar-scanner",
+        "sonar": "npm run sonar-scanner"
     },
     "private": true,
     "dependencies": {
@@ -24,6 +28,7 @@
         "@angular/router": "~9.1.6",
         "@briebug/jest-schematic": "^2.1.1",
         "@storybook/addon-storyshots": "^5.3.18",
+        "jest-sonar-reporter": "^2.0.0",
         "rxjs": "~6.5.4",
         "tslib": "^1.10.0",
         "zone.js": "~0.10.2"
@@ -59,8 +64,14 @@
         "lint-staged": "^10.2.2",
         "prettier": "^2.0.5",
         "protractor": "~5.4.3",
+        "sonarqube-scanner": "^2.6.0",
         "ts-node": "~8.3.0",
         "tslint": "~6.1.0",
         "typescript": "~3.8.3"
+    },
+    "jestSonar": {
+        "reportPath": "reports",
+        "reportFile": "test-reporter.xml",
+        "indent": 4
     }
 }
